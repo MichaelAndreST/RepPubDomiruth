@@ -16,25 +16,23 @@ namespace CarteleraCine.API.Controllers
             _context = context;
         }
 
-        // GET: api/Funcion
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Funcion>>> GetFunciones()
         {
             var funciones = await _context.Funciones
-                .Include(f => f.Pelicula)  // Incluir la película relacionada
-                .Include(f => f.Sala)      // Incluir la sala relacionada
+                .Include(f => f.Pelicula)  
+                .Include(f => f.Sala)      
                 .ToListAsync();
 
             return funciones;
         }
 
-        // GET: api/Funcion/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Funcion>> GetFuncion(int id)
         {
             var funcion = await _context.Funciones
-                .Include(f => f.Pelicula)  // Incluir la película relacionada
-                .Include(f => f.Sala)      // Incluir la sala relacionada
+                .Include(f => f.Pelicula)  
+                .Include(f => f.Sala)      
                 .FirstOrDefaultAsync(f => f.Id == id);
 
             if (funcion == null)
@@ -45,11 +43,9 @@ namespace CarteleraCine.API.Controllers
             return funcion;
         }
 
-        // POST: api/Funcion
         [HttpPost]
         public async Task<ActionResult<Funcion>> PostFuncion(Funcion funcion)
         {
-            // Validación: Verificar que la Película y la Sala existen
             var pelicula = await _context.Peliculas.FindAsync(funcion.PeliculaId);
             var sala = await _context.Salas.FindAsync(funcion.SalaId);
 
@@ -64,7 +60,6 @@ namespace CarteleraCine.API.Controllers
             return CreatedAtAction("GetFuncion", new { id = funcion.Id }, funcion);
         }
 
-        // DELETE: api/Funcion/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFuncion(int id)
         {

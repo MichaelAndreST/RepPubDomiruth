@@ -16,14 +16,12 @@ namespace CarteleraCine.API.Controllers
             _context = context;
         }
 
-        // GET: api/Pelicula
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pelicula>>> GetPeliculas()
         {
             return await _context.Peliculas.ToListAsync();
         }
 
-        // GET: api/Pelicula/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Pelicula>> GetPelicula(int id)
         {
@@ -37,7 +35,6 @@ namespace CarteleraCine.API.Controllers
             return pelicula;
         }
 
-        // POST: api/Pelicula
         [HttpPost]
         public async Task<ActionResult<Pelicula>> PostPelicula(Pelicula pelicula)
         {
@@ -47,7 +44,6 @@ namespace CarteleraCine.API.Controllers
             return CreatedAtAction("GetPelicula", new { id = pelicula.Id }, pelicula);
         }
 
-        // DELETE: api/Pelicula/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePelicula(int id)
         {
