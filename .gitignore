@@ -1,0 +1,8 @@
+# Carpetas de Visual Studio
+.vs/
+bin/
+obj/
+
+# Angular build outputs
+dist/
+node_modules/
