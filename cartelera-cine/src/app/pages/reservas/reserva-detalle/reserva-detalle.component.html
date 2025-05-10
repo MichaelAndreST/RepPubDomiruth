@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h2>Detalles de la Reserva</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Nombre:</strong> {{ reserva?.cliente }}</p>
+      <p><strong>Correo:</strong> {{ reserva?.email }}</p>
+      <p><strong>Película:</strong> {{ reserva?.pelicula?.nombre }}</p>
+      <p><strong>Sala:</strong> {{ reserva?.sala?.nombre }}</p>
+      <p><strong>Entradas:</strong> {{ reserva?.cantidadEntradas }}</p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Fecha:</strong> {{ reserva?.fecha | date: 'shortDate' }}</p>
+      <p><strong>Hora:</strong> {{ reserva?.hora | date: 'shortTime' }}</p>
+    </div>
+  </div>
+</div>

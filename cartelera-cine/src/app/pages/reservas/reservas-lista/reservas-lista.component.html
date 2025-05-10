@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre Cliente</th>
+      <th>Email</th>
+      <th>Pelicula</th>
+      <th>Cantidad Entradas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reserva of reservas">
+      <td>{{ reserva.cliente }}</td>
+      <td>{{ reserva.email }}</td>
+      <td>{{ reserva.pelicula?.nombre }}</td>
+      <td>{{ reserva.cantidadEntradas }}</td>
+      <td>
+        <button class="btn btn-info" [routerLink]="['/reserva', reserva.id]">Detalles</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

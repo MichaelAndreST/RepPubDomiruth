@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h2>Funciones</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Hora</th>
+        <th>Sala</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let funcion of funciones">
+        <td>{{ funcion.horaInicio | date:'shortTime' }}</td>
+        <td>{{ funcion.sala.nombre }}</td>
+        <td>
+          <button class="btn btn-info" [routerLink]="['/funcion', funcion.id]">Detalles</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

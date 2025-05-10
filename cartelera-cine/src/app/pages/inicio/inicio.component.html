@@ -1,0 +1,35 @@
+<div class="container">
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="path-to-your-image" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Película Destacada</h5>
+          <p>Descripción de la película o función destacada.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Lista de películas destacadas -->
+  <div class="row mt-4">
+    <div class="col-md-4" *ngFor="let pelicula of peliculas">
+      <div class="card" style="width: 18rem;">
+        <img src="{{ pelicula.imagen }}" class="card-img-top" alt="{{ pelicula.nombre }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ pelicula.nombre }}</h5>
+          <p class="card-text">{{ pelicula.descripcion | slice: 0:100 }}...</p>
+          <a [routerLink]="['/peliculas', pelicula.id]" class="btn btn-primary">Ver detalle</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

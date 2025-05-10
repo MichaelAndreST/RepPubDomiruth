@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h2>Películas</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let pelicula of peliculas">
+      <div class="card mb-4" style="width: 18rem;">
+        <img src="{{ pelicula.imagen }}" class="card-img-top" alt="{{ pelicula.nombre }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ pelicula.nombre }}</h5>
+          <p class="card-text">{{ pelicula.descripcion | slice: 0:100 }}...</p>
+          <a [routerLink]="['/pelicula', pelicula.id]" class="btn btn-primary">Ver detalles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

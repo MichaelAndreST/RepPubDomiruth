@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <img *ngIf="pelicula?.imagen" [src]="pelicula?.imagen" class="img-fluid" alt="{{ pelicula?.nombre }}">
+    </div>
+    <div class="col-md-6">
+      <h2>{{ pelicula?.nombre }}</h2>
+      <p><strong>Descripción:</strong> {{ pelicula?.descripcion }}</p>
+      <p><strong>Duración:</strong> {{ pelicula?.duracion }} minutos</p>
+      <p><strong>Género:</strong> {{ pelicula?.genero }}</p>
+      <button class="btn btn-success" [routerLink]="['/reservas', pelicula?.id]">Reservar entrada</button>
+    </div>
+  </div>
+</div>

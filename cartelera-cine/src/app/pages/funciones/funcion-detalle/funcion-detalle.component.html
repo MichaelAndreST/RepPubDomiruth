@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <h2>Detalles de la Función</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Hora:</strong> {{ funcion?.horaInicio | date:'shortTime' }}</p>
+      <p><strong>Sala:</strong> {{ funcion?.sala.nombre }}</p>
+      <p><strong>Película:</strong> {{ funcion?.pelicula.nombre }}</p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Sinopsis:</strong> {{ funcion?.pelicula.descripcion }}</p>
+      <button class="btn btn-warning" [routerLink]="['/reservas', funcion?.id]">Reservar entrada</button>
+    </div>
+  </div>
+</div>
